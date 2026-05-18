@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张雪机车 · 五冠传奇 | ZHANGXUE MOTO FANS</title>
+<meta name="description" content="张雪机车非官方粉丝资讯站。WSBK 五冠加冕,书写中国机车传奇。官方网站:cqzxmoto.com">
+<meta name="keywords" content="张雪机车,张雪,820RR,500RR,WSBK,五冠,中国摩托车">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--red:#e10600;
+--red-bright:#ff1a1a;
+--red-dark:#7a0a0e;
+--black:#0a0a0a;
+--ink:#141414;
+--cream:#f5f1e8;
+--gold:#d4af37;
+--gray:#8a8a8a;
+--line:#2a2a2a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Noto Serif SC',serif;
+background:var(--black);
+color:var(--cream);
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* 噪点纹理 */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+pointer-events:none;
+z-index:1;
+mix-blend-mode:overlay;
+}
+
+/* 顶部速报横条 */
+.breaking{
+position:fixed;
+top:0;left:0;right:0;
+background:var(--red);
+color:var(--cream);
+padding:8px 0;
+z-index:200;
+overflow:hidden;
+font-family:'JetBrains Mono',monospace;
+font-size:0.85rem;
+letter-spacing:2px;
+border-bottom:2px solid var(--gold);
+}
+.breaking-track{
+display:flex;
+white-space:nowrap;
+animation:scroll 35s linear infinite;
+}
+.breaking-item{padding:0 40px;display:inline-flex;align-items:center;gap:12px}
+.breaking-item::before{content:'●';color:var(--gold)}
+@keyframes scroll{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
+/* 导航栏 */
+nav{
+position:fixed;
+top:36px;left:0;right:0;
+background:rgba(10,10,10,0.92);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);
+z-index:100;
+padding:14px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{
+font-family:'Bebas Neue',sans-serif;
+font-size:1.5rem;
+letter-spacing:3px;
+color:var(--cream);
+text-decoration:none;
+}
+.logo span{color:var(--red-bright)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{
+color:var(--cream);
+text-decoration:none;
+font-family:'Bebas Neue',sans-serif;
+font-size:0.95rem;
+letter-spacing:2px;
+transition:color 0.3s;
+position:relative;
+}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-links a::after{
+content:'';
+position:absolute;
+bottom:-4px;left:0;
+width:0;height:2px;
+background:var(--red-bright);
+transition:width 0.3s;
+}
+.nav-links a:hover::after{width:100%}
+
+/* HERO - 五冠 */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+padding:140px 6% 60px;
+background:
+radial-gradient(ellipse at 30% 20%, rgba(225,6,0,0.4) 0%, transparent 60%),
+radial-gradient(ellipse at 70% 80%, rgba(122,10,14,0.5) 0%, transparent 60%),
+linear-gradient(135deg, #0a0a0a 0%, #1a0303 40%, #2a0506 70%, #0a0a0a 100%);
+overflow:hidden;
+}
+
+/* 赛道光痕 */
+.hero::before{
+content:'';
+position:absolute;
+top:50%;
+left:-10%;
+width:120%;
+height:2px;
+background:linear-gradient(90deg,
+transparent 0%,
+var(--red) 30%,
+var(--gold) 50%,
+var(--red) 70%,
+transparent 100%);
+transform:rotate(-12deg) translateY(-50%);
+opacity:0.6;
+filter:blur(2px);
+box-shadow:0 0 30px var(--red);
+animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{
+0%,100%{opacity:0.4}
+50%{opacity:0.8}
+}
+
+.hero::after{
+content:'';
+position:absolute;
+top:0;right:-5%;
+width:50%;
+height:100%;
+background:repeating-linear-gradient(
+45deg,
+transparent 0px,
+transparent 30px,
+rgba(225,6,0,0.06) 30px,
+rgba(225,6,0,0.06) 32px
+);
+pointer-events:none;
+}
+
+.hero-content{
+position:relative;
+z-index:3;
+max-width:1100px;
+width:100%;
+animation:fadeUp 1s ease-out;
+}
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.hero-meta{
+display:flex;
+gap:20px;
+align-items:center;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+.hero-tag{
+display:inline-flex;
+align-items:center;
+gap:8px;
+font-family:'JetBrains Mono',monospace;
+font-size:0.85rem;
+color:var(--red-bright);
+letter-spacing:3px;
+padding:6px 18px;
+border:1px solid var(--red-bright);
+background:rgba(225,6,0,0.1);
+}
+.hero-tag .dot{
+width:8px;height:8px;
+background:var(--red-bright);
+border-radius:50%;
+animation:blink 1.2s ease-in-out infinite;
+}
+@keyframes blink{
+0%,100%{opacity:1;box-shadow:0 0 8px var(--red-bright)}
+50%{opacity:0.3;box-shadow:0 0 0 var(--red-bright)}
+}
+.hero-date{
+font-family:'JetBrains Mono',monospace;
+color:var(--gray);
+font-size:0.85rem;
+letter-spacing:2px;
+}
+
+.hero h1{
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(3.5rem, 11vw, 9rem);
+line-height:0.9;
+letter-spacing:3px;
+color:var(--cream);
+margin-bottom:30px;
+text-shadow:0 0 40px rgba(225,6,0,0.3);
+}
+.hero h1 .accent{
+background:linear-gradient(135deg, #ff1a1a 0%, #e10600 50%, #d4af37 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+display:block;
+font-style:italic;
+}
+.hero h1 .stamp{
+display:inline-block;
+color:var(--gold);
+font-size:0.5em;
+vertical-align:middle;
+margin-left:20px;
+border:3px solid var(--gold);
+padding:4px 16px;
+transform:rotate(-3deg);
+letter-spacing:6px;
+}
+
+.hero-sub{
+font-size:clamp(1.1rem,2vw,1.4rem);
+color:var(--cream);
+max-width:700px;
+margin-bottom:36px;
+font-weight:400;
+line-height:1.7;
+}
+.hero-sub strong{
+color:var(--red-bright);
+font-weight:700;
+}
+
+.hero-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+margin-top:50px;
+padding-top:40px;
+border-top:2px solid var(--red);
+}
+.stat{display:flex;flex-direction:column}
+.stat-num{
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(2.5rem,5vw,3.5rem);
+color:var(--red-bright);
+line-height:1;
+letter-spacing:1px;
+text-shadow:0 0 20px rgba(225,6,0,0.5);
+}
+.stat-num .unit{font-size:0.5em;color:var(--cream)}
+.stat-label{
+font-size:0.8rem;
+color:var(--gray);
+letter-spacing:2px;
+margin-top:8px;
+font-family:'JetBrains Mono',monospace;
+}
+
+/* SECTION 通用 */
+section{
+padding:110px 6%;
+position:relative;
+z-index:2;
+}
+.section-header{
+margin-bottom:70px;
+display:flex;
+align-items:baseline;
+gap:24px;
+border-bottom:2px solid var(--red);
+padding-bottom:24px;
+flex-wrap:wrap;
+}
+.section-num{
+font-family:'JetBrains Mono',monospace;
+color:var(--red-bright);
+font-size:0.95rem;
+letter-spacing:3px;
+}
+.section-title{
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(2.2rem,5.5vw,4rem);
+letter-spacing:4px;
+color:var(--cream);
+}
+.section-title em{
+font-style:italic;
+color:var(--red-bright);
+}
+
+/* 速报 section */
+.magyar{
+background:
+linear-gradient(rgba(10,10,10,0.85),rgba(10,10,10,0.95)),
+linear-gradient(135deg, var(--red-dark) 0%, var(--black) 100%);
+position:relative;
+overflow:hidden;
+}
+.magyar::before{
+content:'53';
+position:absolute;
+top:50%;right:-50px;
+transform:translateY(-50%);
+font-family:'Bebas Neue',sans-serif;
+font-size:35rem;
+color:rgba(225,6,0,0.04);
+line-height:0.8;
+pointer-events:none;
+font-weight:700;
+}
+
+.race-card{
+background:linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(10,10,10,0.95) 100%);
+border:1px solid var(--red);
+padding:50px 45px;
+margin-bottom:30px;
+position:relative;
+overflow:hidden;
+}
+.race-card::before{
+content:'';
+position:absolute;
+top:0;left:0;
+width:6px;height:100%;
+background:linear-gradient(180deg, var(--gold) 0%, var(--red) 100%);
+}
+.race-meta{
+display:flex;
+gap:16px;
+margin-bottom:24px;
+flex-wrap:wrap;
+align-items:center;
+}
+.race-meta span{
+font-family:'JetBrains Mono',monospace;
+font-size:0.8rem;
+letter-spacing:2px;
+color:var(--gray);
+}
+.race-meta .race-num{
+color:var(--gold);
+font-family:'Bebas Neue',sans-serif;
+font-size:1.5rem;
+letter-spacing:3px;
+}
+.race-title{
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(2rem,4.5vw,3.5rem);
+line-height:1.05;
+color:var(--cream);
+margin-bottom:20px;
+letter-spacing:2px;
+}
+.race-title em{color:var(--red-bright);font-style:italic}
+.race-desc{
+font-size:1.1rem;
+line-height:1.9;
+color:var(--cream);
+margin-bottom:24px;
+}
+.race-desc strong{color:var(--gold)}
+
+.quote-block{
+border-left:4px solid var(--red);
+padding:20px 28px;
+margin-top:30px;
+font-style:italic;
+font-size:1.15rem;
+background:rgba(225,6,0,0.05);
+color:var(--cream);
+}
+.quote-block .attribution{
+display:block;
+margin-top:14px;
+font-size:0.9rem;
+color:var(--gray);
+font-style:normal;
+font-family:'JetBrains Mono',monospace;
+letter-spacing:1px;
+}
+
+/* 五冠时间线 */
+.victory-line{
+position:relative;
+margin-top:80px;
+padding-left:30px;
+}
+.victory-line::before{
+content:'';
+position:absolute;
+left:8px;top:0;bottom:0;
+width:3px;
+background:linear-gradient(180deg, var(--gold) 0%, var(--red) 50%, var(--red-dark) 100%);
+}
+.vl-item{
+position:relative;
+margin-bottom:50px;
+padding:24px 28px;
+background:rgba(20,20,20,0.7);
+border:1px solid var(--line);
+transition:all 0.3s;
+}
+.vl-item:hover{
+border-color:var(--red);
+transform:translateX(6px);
+}
+.vl-item::before{
+content:'';
+position:absolute;
+left:-30px;top:30px;
+width:14px;height:14px;
+background:var(--gold);
+border-radius:50%;
+box-shadow:0 0 0 5px var(--black),0 0 0 6px var(--red),0 0 20px var(--red);
+}
+.vl-num{
+font-family:'Bebas Neue',sans-serif;
+font-size:3.5rem;
+color:var(--gold);
+line-height:1;
+letter-spacing:2px;
+display:inline-block;
+}
+.vl-num::before{content:'#'}
+.vl-where{
+display:inline-block;
+margin-left:18px;
+font-family:'Oswald',sans-serif;
+font-size:1.4rem;
+color:var(--cream);
+letter-spacing:1px;
+vertical-align:bottom;
+}
+.vl-date{
+display:block;
+font-family:'JetBrains Mono',monospace;
+color:var(--gray);
+font-size:0.85rem;
+letter-spacing:2px;
+margin:6px 0 16px;
+}
+.vl-detail{
+color:var(--cream);
+line-height:1.8;
+font-size:1rem;
+}
+.vl-detail strong{color:var(--red-bright)}
+
+/* 故事 section */
+.story{background:var(--ink)}
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:start;
+}
+.story-intro{
+font-size:1.25rem;
+line-height:1.9;
+color:var(--cream);
+}
+.story-intro p{margin-bottom:22px}
+.story-intro strong{color:var(--red-bright)}
+.story-intro em{
+color:var(--gold);
+font-style:normal;
+font-weight:700;
+}
+
+.timeline{position:relative;padding-left:30px}
+.timeline::before{
+content:'';
+position:absolute;
+left:8px;top:0;bottom:0;
+width:2px;
+background:var(--line);
+}
+.tl-item{
+position:relative;
+margin-bottom:28px;
+}
+.tl-item::before{
+content:'';
+position:absolute;
+left:-26px;top:8px;
+width:10px;height:10px;
+background:var(--red-bright);
+border-radius:50%;
+box-shadow:0 0 0 4px var(--ink),0 0 0 5px var(--red);
+}
+.tl-year{
+font-family:'Bebas Neue',sans-serif;
+color:var(--red-bright);
+font-size:1.25rem;
+letter-spacing:2px;
+}
+.tl-text{
+font-size:0.95rem;
+color:var(--gray);
+margin-top:4px;
+}
+
+/* 车型 section */
+.bikes{background:var(--black)}
+.bike-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+.bike-card{
+background:linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+border:1px solid var(--line);
+padding:40px 32px;
+position:relative;
+overflow:hidden;
+transition:all 0.4s;
+}
+.bike-card.featured{
+border-color:var(--gold);
+background:linear-gradient(135deg, #1f1505 0%, #0a0a0a 100%);
+}
+.bike-card::before{
+content:'';
+position:absolute;
+top:0;left:0;
+width:4px;height:100%;
+background:var(--red);
+transition:width 0.3s;
+}
+.bike-card.featured::before{background:var(--gold)}
+.bike-card:hover{transform:translateY(-6px);border-color:var(--red-bright)}
+.bike-card:hover::before{width:100%;opacity:0.06}
+.bike-badge{
+position:absolute;
+top:16px;right:16px;
+background:var(--gold);
+color:var(--black);
+padding:4px 12px;
+font-family:'Bebas Neue',sans-serif;
+font-size:0.8rem;
+letter-spacing:2px;
+}
+.bike-name{
+font-family:'Bebas Neue',sans-serif;
+font-size:2.6rem;
+letter-spacing:3px;
+color:var(--cream);
+position:relative;
+z-index:2;
+}
+.bike-subname{
+font-family:'JetBrains Mono',monospace;
+color:var(--red-bright);
+font-size:0.85rem;
+letter-spacing:2px;
+margin-bottom:24px;
+position:relative;
+z-index:2;
+}
+.bike-card.featured .bike-subname{color:var(--gold)}
+.bike-specs{
+list-style:none;
+position:relative;
+z-index:2;
+}
+.bike-specs li{
+padding:11px 0;
+border-bottom:1px solid var(--line);
+display:flex;
+justify-content:space-between;
+font-size:0.92rem;
+}
+.bike-specs li span:first-child{color:var(--gray)}
+.bike-specs li span:last-child{
+color:var(--cream);
+font-family:'JetBrains Mono',monospace;
+font-weight:700;
+}
+
+/* 媒体回响 section */
+.echo{background:var(--ink)}
+.echo-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+}
+.echo-card{
+background:var(--black);
+border-left:4px solid var(--red);
+padding:30px;
+transition:all 0.3s;
+}
+.echo-card.gold{border-left-color:var(--gold)}
+.echo-card:hover{
+transform:translateX(6px);
+background:#1a1a1a;
+}
+.echo-date{
+font-family:'JetBrains Mono',monospace;
+color:var(--red-bright);
+font-size:0.8rem;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+.echo-card.gold .echo-date{color:var(--gold)}
+.echo-title{
+font-size:1.15rem;
+font-weight:700;
+color:var(--cream);
+margin-bottom:14px;
+line-height:1.5;
+}
+.echo-source{
+font-size:0.85rem;
+color:var(--gray);
+font-family:'JetBrains Mono',monospace;
+}
+
+/* 关于本站 */
+.about{
+background:var(--black);
+padding:80px 6%;
+}
+.about-box{
+max-width:850px;
+margin:0 auto;
+padding:48px 40px;
+border:1px solid var(--red);
+background:rgba(225,6,0,0.05);
+text-align:center;
+}
+.about-box h3{
+font-family:'Bebas Neue',sans-serif;
+font-size:2rem;
+letter-spacing:3px;
+color:var(--red-bright);
+margin-bottom:24px;
+}
+.about-box p{
+color:var(--cream);
+font-size:1rem;
+margin-bottom:14px;
+}
+.about-box a{
+color:var(--red-bright);
+text-decoration:none;
+border-bottom:1px solid var(--red-bright);
+}
+
+/* 页脚 */
+footer{
+background:#050505;
+padding:50px 6%;
+text-align:center;
+border-top:2px solid var(--red);
+}
+.footer-slogan{
+font-family:'Bebas Neue',sans-serif;
+font-size:1.5rem;
+letter-spacing:5px;
+color:var(--gold);
+margin-bottom:20px;
+}
+footer p{
+color:var(--gray);
+font-size:0.85rem;
+font-family:'JetBrains Mono',monospace;
+letter-spacing:1px;
+}
+footer a{color:var(--red-bright);text-decoration:none}
+
+/* 响应式 */
+@media(max-width:768px){
+.nav-links{display:none}
+.hero{padding:160px 6% 60px}
+.story-grid,.bike-grid,.echo-grid{grid-template-columns:1fr}
+.hero-stats{grid-template-columns:repeat(2,1fr);gap:24px}
+section{padding:70px 6%}
+.race-card{padding:32px 24px}
+.magyar::before{font-size:18rem}
+.hero h1 .stamp{display:inline-block;margin:10px 0 0;font-size:0.4em}
+}
+</style>
+
+</head>
+<body>
+
+<!-- 速报横条 -->
+
+<div class="breaking">
+<div class="breaking-track">
+<div class="breaking-item">速报 BREAKING</div>
+<div class="breaking-item">2026.05.17 WSBK 捷克站双冠</div>
+<div class="breaking-item">五冠加冕 书写传奇</div>
+<div class="breaking-item">张雪机车 WSBK 五冠传奇</div>
+<div class="breaking-item">车手积分榜跃升至第二位</div>
+<div class="breaking-item">速报 BREAKING</div>
+<div class="breaking-item">2026.05.17 WSBK 捷克站双冠</div>
+<div class="breaking-item">五冠加冕 书写传奇</div>
+<div class="breaking-item">张雪机车 WSBK 五冠传奇</div>
+<div class="breaking-item">车手积分榜跃升至第二位</div>
+</div>
+</div>
+
+<nav>
+<a href="#" class="logo">ZHANGXUE<span>·</span>FANS</a>
+<ul class="nav-links">
+<li><a href="#magyar">五冠</a></li>
+<li><a href="#story">故事</a></li>
+<li><a href="#bikes">车型</a></li>
+<li><a href="#echo">回响</a></li>
+<li><a href="#about">关于</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+<div class="hero-content">
+<div class="hero-meta">
+<span class="hero-tag"><span class="dot"></span>五冠传奇 · FIVE CROWN</span>
+<span class="hero-date">2026.03.28 → 2026.05.17</span>
+</div>
+<h1>
+他们说不可能<br>
+<span class="accent">于是我们做到了五次</span>
+<span class="stamp">×5</span>
+</h1>
+<p class="hero-sub">
+葡萄牙站,双冠开启王朝。<br>
+匈牙利站,绝杀载入史册。<br>
+捷克站,两天两冠,赛季双杀。<br>
+<strong>五场比赛,五种不同姿态。中国机车,正在改写百年历史。</strong>
+</p>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-num">5</div>
+<div class="stat-label">WSBK 冠军</div>
+</div>
+<div class="stat">
+<div class="stat-num">2<span class="unit">ND</span></div>
+<div class="stat-label">车手积分榜 第2</div>
+</div>
+<div class="stat">
+<div class="stat-num">820<span class="unit">CC</span></div>
+<div class="stat-label">自研三缸引擎</div>
+</div>
+<div class="stat">
+<div class="stat-num">2.81<span class="unit">S</span></div>
+<div class="stat-label">零百加速</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 五冠时间线 -->
+
+<section id="magyar" class="magyar">
+<div class="section-header">
+<span class="section-num">01 / VICTORIES</span>
+<h2 class="section-title">五场胜利,<em>五种传奇</em></h2>
+</div>
+
+<!-- 第五冠 - 重头戏 -->
+
+<div class="race-card">
+<div class="race-meta">
+<span class="race-num">#05</span>
+<span>·</span>
+<span>2026.05.17</span>
+<span>·</span>
+<span>捷克 · 莫斯特赛道</span>
+<span>·</span>
+<span>WSBK · WorldSSP · Round 5</span>
+</div>
+<h3 class="race-title">读秒绝杀,<em>王朝已成</em></h3>
+<p class="race-desc">
+捷克莫斯特赛道,WSBK赛季第5站,素有"刹车地狱"之称——4.212公里,21个弯道,10个极限重刹区。全场观众见证了本届赛事最激动人心的一场对决。<br><br>
+杆位发车。德比斯与土耳其车手恩居展开整场缠斗——交替领先,攻防互换。最后六圈,恩居一度完成超越,眼看德比斯将以亚军收场。<br><br>
+<strong>最后一个弯道出弯瞬间,德比斯凭借更快的出弯加速度,从外线完成致命反超,以不足0.5秒的差距冲过终点线。</strong><br><br>
+这是张雪机车本赛季第5个分站冠军,也是捷克站<strong>第二个冠军</strong>。25分入账后,德比斯积分从122分飙升至147分,车手榜从第三跃升至<strong>第二位</strong>,距榜首仅差19分。
+</p>
+<div class="quote-block">
+"我还要赢！我的张雪机车很强！"
+<span class="attribution">— 瓦伦丁·德比斯 / 53号车手</span>
+</div>
+</div>
+
+<!-- 时间线 -->
+
+<div class="victory-line">
+<div class="vl-item">
+<span class="vl-num">01</span>
+<span class="vl-where">葡萄牙 · 阿尔加维国际赛道</span>
+<span class="vl-date">2026.03.28 / 第一回合</span>
+<p class="vl-detail">
+中国摩托车品牌<strong>历史性首胜</strong>。法国车手瓦伦丁·德比斯驾驶张雪820RR-RS,以接近<strong>4秒</strong>的绝对优势冲过终点——在通常以毫秒决胜负的运动中,这样的差距极为罕见。打破欧美日品牌长达百年的WSBK中量级组别垄断。
+</p>
+</div>
+<div class="vl-item">
+<span class="vl-num">02</span>
+<span class="vl-where">葡萄牙 · 阿尔加维国际赛道</span>
+<span class="vl-date">2026.03.29 / 第二回合</span>
+<p class="vl-detail">
+次日同一辆赛车<strong>再次夺冠</strong>,完成单站双冠。这不是偶然,是确认。张雪本人在赛后说:"我等这一刻,等了二十年。"
+</p>
+</div>
+<div class="vl-item">
+<span class="vl-num">03</span>
+<span class="vl-where">匈牙利 · 布达佩斯</span>
+<span class="vl-date">2026.05.02 / 第一回合</span>
+<p class="vl-detail">
+<strong>逆风登顶。</strong>第五位发车,最后一圈最后20秒连超两台雅马哈,实现绝杀夺冠。从首战夺冠到三冠加冕,只用了35天。张雪在社交媒体霸气回应:<strong>"谁不服?"</strong>
+</p>
+</div>
+<div class="vl-item">
+<span class="vl-num">04</span>
+<span class="vl-where">捷克 · 莫斯特赛道</span>
+<span class="vl-date">2026.05.16 / 第一回合</span>
+<p class="vl-detail">
+<strong>从第六到第一。</strong>因自由练习违规被罚后退3位,只能从第6位起步。超级杆位赛第3名,一夜后退至P6。但德比斯在前半程稳扎稳打,第7–8圈连续超车,冲上领跑位置后全程压制,最后第19圈刷出全场最快圈速,<strong>领先3.2秒强势夺冠</strong>,这也是他与张雪机车的赛季第4冠。
+</p>
+</div>
+<div class="vl-item">
+<span class="vl-num">05</span>
+<span class="vl-where">捷克 · 莫斯特赛道</span>
+<span class="vl-date">2026.05.17 / 第二回合</span>
+<p class="vl-detail">
+<strong>杆位绝杀。</strong>杆位发车,与恩居整场缠斗交替领先。最后六圈恩居一度超越,进入最后一个计时段最后一弯——<strong>德比斯凭借更快出弯加速度从外线完成致命反超,不足0.5秒的优势冲线</strong>。两天两冠,本赛季第5冠,车手榜跃升至第二位。
+</p>
+</div>
+</div>
+</section>
+
+<!-- 故事 -->
+
+<section id="story" class="story">
+<div class="section-header">
+<span class="section-num">02 / STORY</span>
+<h2 class="section-title">他的<em>二十年</em></h2>
+</div>
+<div class="story-grid">
+<div class="story-intro">
+<p><strong>1987年</strong>,湖南怀化的一个偏远山村,土坯房会漏雨。一辆母亲送的自行车,是他童年最明亮的记忆。</p>
+<p><strong>14岁辍学</strong>,进入修理铺当学徒,从清洗零件开始。20岁时,他已经可以<em>蒙眼组装一台发动机</em>。</p>
+<p>2006年,19岁的他骑着花一千多块买的破本田,沿着百公里山路追赶湖南卫视的采访车,只为求一次进车队的机会。镜头前他说:<em>"年轻的时候没去做,老了肯定会后悔。"</em></p>
+<p>2024年4月,他在重庆创立张雪机车。<strong>2026年5月17日,捷克莫斯特赛道,他的车第五次站上WSBK最高领奖台。</strong></p>
+<p style="color:var(--gold);font-size:1.4rem;font-weight:700;margin-top:30px;">从修车学徒,到世界传奇。<br>他用了整整二十年。</p>
+</div>
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-year">2001</div>
+<div class="tl-text">14岁辍学,进入修理铺当学徒。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2006</div>
+<div class="tl-text">骑破本田追赶湖南卫视采访车百公里,求上电视的机会。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2017</div>
+<div class="tl-text">与廖涛、文发模合伙创办凯越机车。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2024.04</div>
+<div class="tl-text">在重庆创立张雪机车,专注自主发动机研发。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2024.09</div>
+<div class="tl-text">第22届中国国际摩博会,首款车型500RR亮相。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2025</div>
+<div class="tl-text">全年销量2.1万台,总产值7.5亿元。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2026.01</div>
+<div class="tl-text">完成A轮9000万融资,投后估值10.9亿元。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2026.03.28-29</div>
+<div class="tl-text">WSBK葡萄牙站,包揽双冠,打破百年垄断。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2026.05.02</div>
+<div class="tl-text">WSBK匈牙利站,最后一圈绝杀,三冠加冕。</div>
+</div>
+<div class="tl-item">
+<div class="tl-year">2026.05.16-17</div>
+<div class="tl-text">WSBK捷克站,两天两冠,五冠加冕。</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 车型 -->
+
+<section id="bikes" class="bikes">
+<div class="section-header">
+<span class="section-num">03 / LINEUP</span>
+<h2 class="section-title">产品<em>矩阵</em></h2>
+</div>
+<div class="bike-grid">
+<div class="bike-card">
+<div class="bike-name">500RR</div>
+<div class="bike-subname">// LIGHTWEIGHT SPORT</div>
+<ul class="bike-specs">
+<li><span>排量</span><span>471 cc</span></li>
+<li><span>发动机</span><span>直列双缸</span></li>
+<li><span>定位</span><span>中量级仿赛</span></li>
+<li><span>地位</span><span>单一车型月销冠军</span></li>
+</ul>
+</div>
+<div class="bike-card featured">
+<div class="bike-badge">5× CHAMPION</div>
+<div class="bike-name">820RR</div>
+<div class="bike-subname">// THE FIVE CROWN</div>
+<ul class="bike-specs">
+<li><span>排量</span><span>819 cc</span></li>
+<li><span>发动机</span><span>自研直列三缸</span></li>
+<li><span>最大马力</span><span>135 HP</span></li>
+<li><span>零百加速</span><span>2.81 秒</span></li>
+<li><span>核心国产化</span><span>100%</span></li>
+<li><span>WSBK</span><span>5冠</span></li>
+<li><span>标准版</span><span>￥43,800</span></li>
+</ul>
+</div>
+<div class="bike-card">
+<div class="bike-name">500F</div>
+<div class="bike-subname">// CLASSIC CRUISER</div>
+<ul class="bike-specs">
+<li><span>排量</span><span>470 cc</span></li>
+<li><span>发动机</span><span>平顺直列四缸</span></li>
+<li><span>定位</span><span>复古巡航</span></li>
+<li><span>风格</span><span>永恒设计</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 媒体回响 -->
+
+<section id="echo" class="echo">
+<div class="section-header">
+<span class="section-num">04 / ECHO</span>
+<h2 class="section-title">五冠之后<em>,世界回响</em></h2>
+</div>
+<div class="echo-grid">
+<div class="echo-card gold">
+<div class="echo-date">2026.05.18</div>
+<div class="echo-title">五冠加冕!张雪:我们让世界知道中国制造就是最强</div>
+<div class="echo-source">// 新京报</div>
+</div>
+<div class="echo-card gold">
+<div class="echo-date">2026.05.17</div>
+<div class="echo-title">捷克站再夺冠,张雪机车五冠传奇赛季双杀</div>
+<div class="echo-source">// 新华社</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.05.17</div>
+<div class="echo-title">五冠王!捷克站读秒绝杀,德比斯激动拍打油箱</div>
+<div class="echo-source">// IT之家</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.05.17</div>
+<div class="echo-title">两天两冠!张雪机车捷克站双冠创历史</div>
+<div class="echo-source">// 光明网</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.05.03</div>
+<div class="echo-title">张雪回应三冠:谁不服?</div>
+<div class="echo-source">// 新京报</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.05.02</div>
+<div class="echo-title">匈牙利站绝杀,中国机车制造商首季三冠</div>
+<div class="echo-source">// 新华社</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.04.12</div>
+<div class="echo-title">央视《面对面》专访:夺冠底气来自中国制造</div>
+<div class="echo-source">// 中央电视台</div>
+</div>
+<div class="echo-card">
+<div class="echo-date">2026.03.29</div>
+<div class="echo-title">葡萄牙站包揽双冠,打破欧美日百年垄断</div>
+<div class="echo-source">// WSBK 官方</div>
+</div>
+</div>
+</section>
+
+<!-- 关于本站 -->
+
+<section id="about" class="about">
+<div class="about-box">
+<h3>// 关于本站</h3>
+<p>本站为<strong>非官方粉丝资讯站</strong>,由张雪机车爱好者自发搭建与维护。</p>
+<p>所有内容均来自公开媒体报道,仅供摩托车爱好者交流与学习。</p>
+<p style="margin-top:24px">官方网站请访问:<a href="https://www.cqzxmoto.com" target="_blank" rel="noopener">www.cqzxmoto.com</a></p>
+<p style="margin-top:8px;font-size:0.9rem;color:var(--gray)">本站与张雪机车品牌方无任何商业关联。</p>
+</div>
+</section>
+
+<footer>
+<div class="footer-slogan">极致 · 热爱 · 不服</div>
+<p>© 2026 ZHANGXUE FANS // 张雪机车粉丝资讯站 // 非官方 Unofficial Fan Site</p>
+<p style="margin-top:8px">EXTREME · PASSION · NEVER YIELD</p>
+</footer>
+
+</body>
+</html>
